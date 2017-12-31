@@ -1,0 +1,42 @@
+{
+  "name": "adoyle-cli",
+  "version": "0.0.0",
+  "description": "A CLI for personal tasks, which implemented with NodeJS.",
+  "main": "src/index.js",
+  "bin": {
+    "adoyle": "bin/adoyle"
+  },
+  "scripts": {
+    "pub": "npm run pub-patch",
+    "pub-patch": "npm-run-all version-patch pub-common",
+    "pub-minor": "npm-run-all version-minor pub-common",
+    "pub-major": "npm-run-all version-major pub-common",
+    "pub-common": "npm publish && git push --tags && git rebase develop master && git push --all && git checkout develop",
+    "version-patch": "npm version patch -m 'Bump: patch version to %s'",
+    "version-minor": "npm version minor -m 'Bump: minor version to %s'",
+    "version-major": "npm version major -m 'Bump: major version to %s'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adoyle-h/adoyle-cli.git"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "ADoyle <adoyle.h@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/adoyle-h/adoyle-cli/issues"
+  },
+  "homepage": "https://github.com/adoyle-h/adoyle-cli#readme",
+  "dependencies": {
+    "caporal": "^0.9.0",
+    "json5": "^0.5.1",
+    "opn": "^5.1.0",
+    "shelljs": "^0.7.8"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
+  }
+}
